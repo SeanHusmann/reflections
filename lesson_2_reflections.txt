@@ -1,4 +1,4 @@
-What happens when you initialize a repository? Why do you need to do it?
+(1) What happens when you initialize a repository? Why do you need to do it?
 
 Running "git init" will initialize a repository in the current directory.
 Initializing a repository means git will install a hidden folder called .git
@@ -14,7 +14,7 @@ git couldn't know on its own which files a user wishes to track.
 
 
 
-How is the staging area different from the working directory and the repository? 
+(2) How is the staging area different from the working directory and the repository? 
 What value do you think it offers?
 
 The working directly is simply a container for all of our files.
