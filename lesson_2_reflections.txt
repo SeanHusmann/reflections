@@ -1,0 +1,33 @@
+What happens when you initialize a repository? Why do you need to do it?
+
+Running "git init" will initialize a repository in the current directory.
+Initializing a repository means git will install a hidden folder called .git
+in this directory, which contains metadata files for tracking the changes
+and contents of this directory.
+
+Initializing a repository will not automatically make a first commit to contain
+all the files of the repository in their pristine, clean state for an initial commit.
+Files must be manually and purposely added to the first commit to initiate tracking
+from there on out. This is because some files may not be desired to be tracked and
+git couldn't know on its own which files a user wishes to track.
+
+
+
+
+How is the staging area different from the working directory and the repository? 
+What value do you think it offers?
+
+The working directly is simply a container for all of our files.
+The repository is a container for all of our commits, our logical changes over time.
+The staging area is an intermediary place between the working directory and the
+repository for us to place files on for our next commit.
+
+It helps us manually let git know which files belong to our commit, our "logical change",
+and which don't. Ultimately, it simply gives us more fine-grained control over our commits.
+Imagine a situation where we factually made more than one logical change by adding logical
+changes in multiple files (note: not *one* logical change across multiple files, but
+multiple logical changes in multiple files), but still want to adhere to our "one commit = one logical change" principle. We may have done so accidentally. The staging area then
+helps us still keep our commits clean and simple and adhere to our "one logical change per
+commit principle" by adding only the files affected by each logical change to the staging
+area and then making a commit and repeating this process for all the logical changes we
+made.
