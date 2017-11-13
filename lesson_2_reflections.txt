@@ -31,3 +31,12 @@ helps us still keep our commits clean and simple and adhere to our "one logical 
 commit principle" by adding only the files affected by each logical change to the staging
 area and then making a commit and repeating this process for all the logical changes we
 made.
+
+Another value the staging area offers is that it allows us to verify (via "git status") 
+the files that were changed before we commit. We may have accidentally changed a file we
+were not aware of or forgot about, which would otherwise be automatically included in 
+our next commit and not make sense as part of the logical change we commited. 
+The staging area increases our awareness of the changes we made. If for example 
+we realize we made more than one logical change when looking at the staging area
+via "git status", we may decide to make two separate commits instead of one.
+We must make sure we adhere to the "one commit = one logical change" principle.
