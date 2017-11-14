@@ -80,3 +80,50 @@ This is in addition to us being able to still go back in commit history later on
 master branch, should we still discover something not working as intended down the line.
 But testing on branches should reduce such occurences and therefor largely keep our
 master branch clean of "hidden surprises."
+
+
+
+
+(5) How do the diagrams help you visualize the branch structure?
+
+What a strange question. They help visualize the branch structure by visualizing the
+branch structure in a diagram. It helped me to understand the concept of what the head,
+branch, and commit represent. And thereby also made clear to me the meaning of the message
+"You are now in detached-HEAD state."
+
+The head can be seen like the head of a cd-drive, or other technical reading device with
+a head, where the head denotes the current location of what is currently being read or
+seen. The head is the part of the device that reads the data, so it's location is
+equivalent to the data we currently see. In this case the data are commits, so the head
+jumps between commits, displaying the one it is currently on. Meaning, it's changing
+the state of the files in the file directory to the state of the commit it is on.
+It's "reading" the commit and applying it to the files, thereby making it visible to us.
+That means the head is always at the currently active commit.
+
+A branch is a chain of commits, where each preceding commit has the next commit as its
+parent. Without a name, it would be an anonymous branch that can only be reached by the ID
+of one of the commits it contains (via git checkout). 
+When a branch has a name and we "git checkout" this branch, the head will always jump to 
+the most recent commit in this branch. We can therefor say that the branch name is 
+equivalent to the most recent commit in a branch. So we can do something like "git checkout 
+branchname".
+
+(Side-Info: Note that "checkout" can be seen quite literally then. We "check out" a commit
+or branch, as in, we "look at it", we check it out, as in colloquial speech. The meaning
+as referring to luggage we pick up at an airport would also match, where the airport
+luggage compartment represents the repository, and the luggage is the commit we take out
+of it. It can also be seen in the sense of "checking out" of a hotel, where we leave the
+hotel, or in the sense of commits, where the commit leaves the repository.)
+
+The message "You are now in detached-HEAD state" appears when we checkout a commit that
+is not the most recent of a branch. Recall that by default when we switch to a branch via
+its name, the head will be at- or the head will be equivalent to the most recent commit in
+that branch and will be automatically moved to each subsequent new commit we make on that 
+branch. So we moved the head from the literal "head" of the branch to one of its
+children/child-commits. That means we alter the default expected behavior of the head from
+here on out. The default behavior or default state is that the head will be at the most
+recent commit of a branch. When making a commit while the head is at a child commit however, we are not moving the head to the most recent commit of the current branch,
+but start creating a new anonymous branch with the next commit, at whose most recent commit 
+the head will sit. This warning message is important to make us aware of the current
+situation, since usually we wish to branch off knowingly only at the literal head of the
+current branch and not somewhere in the past of the commit chain.
