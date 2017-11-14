@@ -40,3 +40,18 @@ The staging area increases our awareness of the changes we made. If for example
 we realize we made more than one logical change when looking at the staging area
 via "git status", we may decide to make two separate commits instead of one.
 We must make sure we adhere to the "one commit = one logical change" principle.
+
+
+
+
+(3) How can you use the staging area to make sure you have one commit per logical change?
+
+In case more than one logical change actually happened for example, we can split it up
+into two commits thanks to the staging area, by adding and commiting them one at a time.
+This would be the case in case we added or deleted more than one file for example.
+
+Or if we made more than one logical change cleanly independently within multiple separate
+files.
+
+In essence, it gives us more flexibility in designing the commit/logical change history
+of our project.
