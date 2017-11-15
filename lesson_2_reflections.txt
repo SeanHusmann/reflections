@@ -98,22 +98,39 @@ equivalent to the data we currently see. In this case the data are commits, so t
 jumps between commits, displaying the one it is currently on. Meaning, it's changing
 the state of the files in the file directory to the state of the commit it is on.
 It's "reading" the commit and applying it to the files, thereby making it visible to us.
-That means the head is always at the currently active commit.
+That means the head is always at the currently active commit. The HEAD equals the currently
+active commit.
 
-A branch is a chain of commits, where each preceding commit has the next commit as its
-parent. Without a name, it would be an anonymous branch that can only be reached by the ID
+A branch is literally a chain of commits, where each preceding commit is the parent of the
+next one. A single branch can also be called a "linear commit history."
+Without a name, it would be an anonymous branch that can only be reached by the ID
 of one of the commits it contains (via git checkout). 
-When a branch has a name and we "git checkout" this branch, the head will always jump to 
-the most recent commit in this branch. We can therefor say that the branch name is 
-equivalent to the most recent commit in a branch. So we can do something like "git checkout 
-branchname".
+When a branch has a name, also called "label" and we "git checkout" this branch, the head 
+will always jump to the most recent commit in this branch. We can therefor say that the
+branch name or "label" is *equivalent* to the most recent commit in a branch. So we can do 
+something like "git checkout branchname". In essence, we can say then that creating a 
+"branch" is simply assigning a "label" to the most recent commit of a commit chain, or 
+"commit history", to easily jump to it. The label will always update to be associated with
+the most recent commit of a commit-chain. Since the "label" of the branch (branch-name) is 
+synonymous with the "branch" and is always associated with the latest commit, it is 
+possible to sometimes hear the word "branch" as being used for referring to a single
+commit, namely the "tip of the branch commit", the "latest commit" of a commit 
+history/commit chain. So an expression like "multiple branches referring to the
+same commit" is something one might hear. That would be the case when we are on the tip 
+commit (latest commit of a branch) and run "git branch branchname" and don't yet commit 
+anything. In this special case, we can say that we have "two branches (branch-names) 
+referring to the same commit." Once we make another commit though, the branch labels
+will update to refer to different commits again. The currently active/checked out branch
+would update/extend, and the label of the currently active/checked out branch would thus 
+move to the branch's latest commit, while the other one would remain where it was, on the 
+previous commit.
 
-(Side-Info: Note that "checkout" can be seen quite literally then. We "check out" a commit
-or branch, as in, we "look at it", we check it out, as in colloquial speech. The meaning
-as referring to luggage we pick up at an airport would also match, where the airport
-luggage compartment represents the repository, and the luggage is the commit we take out
-of it. It can also be seen in the sense of "checking out" of a hotel, where we leave the
-hotel, or in the sense of commits, where the commit leaves the repository.)
+(Side-Info: Note that the command "checkout" can be seen quite literally. We "check out" a
+commit or branch, as in, we "look at it", we check it out, as in colloquial speech. The 
+meaning as referring to luggage we pick up at an airport would also match, where the 
+airport luggage compartment represents the repository, and the luggage is the commit we
+take out of it. It can also be seen in the sense of "checking out" of a hotel, where we 
+leave the hotel, or in the sense of commits, where the commit leaves the repository.)
 
 The message "You are now in detached-HEAD state" appears when we checkout a commit that
 is not the most recent of a branch. Recall that by default when we switch to a branch via
@@ -122,8 +139,34 @@ that branch and will be automatically moved to each subsequent new commit we mak
 branch. So we moved the head from the literal "head" of the branch to one of its
 children/child-commits. That means we alter the default expected behavior of the head from
 here on out. The default behavior or default state is that the head will be at the most
-recent commit of a branch. When making a commit while the head is at a child commit however, we are not moving the head to the most recent commit of the current branch,
-but start creating a new anonymous branch with the next commit, at whose most recent commit 
-the head will sit. This warning message is important to make us aware of the current
-situation, since usually we wish to branch off knowingly only at the literal head of the
-current branch and not somewhere in the past of the commit chain.
+recent commit of a branch. When making a commit while the head is at a parent commit
+however (further down in the commit history), we are not moving the head to the most recent 
+commit of the current branch, but start creating a new anonymous branch with the next 
+commit, at whose most recent commit the head will sit. This warning message is important to 
+make us aware of the current situation, since usually we wish to branch off knowingly only 
+at the literal head of the current branch and not somewhere in the past of the commit 
+chain, because we want our new feature addition, or bug fix to be based on the latest state
+of our code. There is also another reason why this message is important for our awareness.
+Let's assume we went back to find the source of a bug and currently have the
+*bug-introducing commit checked out* and want to immediately fix the bug after some 
+testing. We forget that we he are not currently on the latest commit of our branch, and
+dive right in to apply the fix in the code. If we were to return to the terminal now to
+commit the fix, we are only left with two options. Naturally, we want to apply the fix to
+the latest state/version of our codebase. However, commiting the fix now would start a new
+*anonymous branch* off of the old bug introducing commit (which is not the latest state of
+our code). This is quite useless to us. The other option we would think of is switching
+back to the latest commit of our branch by checking it out and then commiting the fix.
+But remember that checking out a commit will apply its state to our files. Git will prevent
+us from checking out a more recent commit than the one we are currently on, because it
+realizes that we have uncommited changes we would otherwise lose. It will provide you with
+a variety of options for handling your changes and resolving this situation.
+Also realize that if we had unknowingly commited our changes in detached-HEAD state and
+later returned to our latest commit in the master-branch, we will have lost these changes
+(unless we knowingly wrote down the commit ID of our anonymous branch-commit we just made.)
+To summarize: "The detached HEAD message means you aren't on the tip of any branch -- that is, there is no branch label attached to the current HEAD."
+
+IMPORTANT Note also that:
+If you make a commit from a detached HEAD state, no branch will be updated (even if the commit you had checked out is the tip of a branch -- you have to have it checked out by
+branch name to get the branch to auto-update). So it's just warning you that you won't have 
+an easy way to get back to this point unless you make a branch (you can always get back to 
+it if you have the commit id recorded somewhere).
