@@ -170,3 +170,25 @@ If you make a commit from a detached HEAD state, no branch will be updated (even
 branch name to get the branch to auto-update). So it's just warning you that you won't have 
 an easy way to get back to this point unless you make a branch (you can always get back to 
 it if you have the commit id recorded somewhere).
+
+
+
+
+(6) What is the result of merging two branches together? Why do we represent it in the
+diagram the way we do?
+
+Merging two branches together will result in a single branch carrying the label of the
+currently checked out, currently active branch. The commits of both branches will form a
+unified commit history with commits sorted by date/time of creation. The actual
+result of the merge will be visible in the single new resulting commit. This new commit
+will be a combination of the differences between the two latest commits of each branch
+and the last shared commit before branch seperation. What was added by both commits 
+compared to the last shared commit will be present. What was present in the last shared
+commit and not removed by either commit will be present. And what content was removed
+from the last shared commit by either commit will be removed in the new commit. What is
+the same between the two added commits will remain the same. In essence, the new commit
+resulting from the merge contains whatever was in the last commit shared by both branches,
+minus any removals of the latest commit of each branch, plus any additions of the latest
+commit of each branch. That means before merging, we should run a diff to compare the
+*other* branch's last commit/tip with the latest shared commit, to make sure it didn't
+remove any content our own code relies on being there.
