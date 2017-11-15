@@ -192,3 +192,20 @@ minus any removals of the latest commit of each branch, plus any additions of th
 commit of each branch. That means before merging, we should run a diff to compare the
 *other* branch's last commit/tip with the latest shared commit, to make sure it didn't
 remove any content our own code relies on being there.
+
+
+
+
+(7) What are the pros and cons of Git’s automatic merging vs. always doing merges manually?
+
+Git merges in a way that is automatic only in the most obvious of cases, like when both
+files added completely new additions to each file, or where lines were left unchanged
+from the common ancestor file. In cases where both files modified the same line in
+different ways, a conflict emerges and the merging user is notified of this to decide
+which file's lines to keep or how to modify the file to not break anything from both files.
+This is the best solution since git can't know how to resolve this on its own and even
+some sophisticated automatic merging mechanism is likely to introduce issues sooner or
+later when encountering some new or bordlerine situations it was not designed to handle.
+The pro side is thus that files will be merged without issues. The downside is that
+even in some cases we might perceive as obvious regarding a solution, we have to manually
+resolve the conflict ourselves.
