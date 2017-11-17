@@ -26,7 +26,8 @@ It helps us manually let git know which files belong to our commit, our "logical
 and which don't. Ultimately, it simply gives us more fine-grained control over our commits.
 Imagine a situation where we factually made more than one logical change by adding logical
 changes in multiple files (note: not *one* logical change across multiple files, but
-multiple logical changes in multiple files), but still want to adhere to our "one commit = one logical change" principle. We may have done so accidentally. The staging area then
+multiple logical changes in multiple files), but still want to adhere to our "one commit =
+one logical change" principle. We may have done so accidentally. The staging area then
 helps us still keep our commits clean and simple and adhere to our "one logical change per
 commit principle" by adding only the files affected by each logical change to the staging
 area and then making a commit and repeating this process for all the logical changes we
@@ -163,10 +164,12 @@ a variety of options for handling your changes and resolving this situation.
 Also realize that if we had unknowingly commited our changes in detached-HEAD state and
 later returned to our latest commit in the master-branch, we will have lost these changes
 (unless we knowingly wrote down the commit ID of our anonymous branch-commit we just made.)
-To summarize: "The detached HEAD message means you aren't on the tip of any branch -- that is, there is no branch label attached to the current HEAD."
+To summarize: "The detached HEAD message means you aren't on the tip of any branch -- that
+is, there is no branch label attached to the current HEAD."
 
 IMPORTANT Note also that:
-If you make a commit from a detached HEAD state, no branch will be updated (even if the commit you had checked out is the tip of a branch -- you have to have it checked out by
+If you make a commit from a detached HEAD state, no branch will be updated (even if the 
+commit you had checked out is the tip of a branch -- you have to have it checked out by
 branch name to get the branch to auto-update). So it's just warning you that you won't have 
 an easy way to get back to this point unless you make a branch (you can always get back to 
 it if you have the commit id recorded somewhere).
