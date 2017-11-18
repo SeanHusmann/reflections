@@ -1,0 +1,20 @@
+(1) When would you want to use a remote repository rather than keeping all your work local?
+
+(a) Having a remote repository is a great idea for when you're collaborating with other people
+across the globe.
+
+Everyone can access the same most recent version of the project at a central location
+and branch from it to work on things like features, bug fixes, improvements to formatting, 
+improvements to code efficiency, improvements to comments, improvements to documentation, etc.
+
+(b) It also nicely functions as a backup of our project files. It ensures we always have at
+least two storage locations for our files, locally on at least one device and one remote location.
+And when collaborating, the number of more or less recent versions of the project increases
+linearly with the number of collaborators. This can be seen as an extra safety net. The more
+collaborators, the more potential backups we have (assuming people are regular collaborators
+and don't immediately delete their project files after a contribution.)
+
+(c) Finally, what should flow into our consideration at least for using GitHub, is the
+public nature of it (assuming we don't wish to pay the monthly subscription fee for private
+repositories.) Our files would be open for access by the public, so if we have concerns regarding
+our intellectual property, we should be aware of that.
