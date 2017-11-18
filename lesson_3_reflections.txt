@@ -35,3 +35,73 @@ the updates impact my own work in one way or another.
 
 Otherwise I can't really think of scenarios where keeping up to date with the latest
 changes isn't a good idea.
+
+
+
+
+(3) Describe the differences between forks, clones, and branches. When would you use one 
+instead of another?
+
+(a) Forks:
+    A fork is a clone of a repository on GitHub's servers to your own storage area on
+    GitHub's servers. It's basically running "git clone repository-name" on GitHub's
+    servers. The term "forking" is only used in the context of GitHub, not Git.
+    
+    It's convenient because it automatically gives credit to the source-repository this
+    way by containing a backlink to the original from the forked/cloned repository's page.
+    
+    It also allows for keeping track of all the forks made more easily via the
+    source-repository page. Both the total number and the forks themselves.
+
+(b) Clones:
+    Clones are clones/copies of entire existing repositories. The IDs of commits are
+    exactly the same in both repositories. 
+
+    The source of a clone is also called the "remote", as in "remote repository." 
+    When we clone a repository via "git clone repository-url", the "remote" variable is
+    automatically updated in Git, which we can view via "git remote" and in more detail
+    (showing the remote url) via "git remote -v". If we had set up an empty remote 
+    repository on GitHub first, we can set the remote repository url via 
+    "git remote add remote-name remote-url", where we could name "remote-name" any way
+    we like, but "origin" is customary.
+
+    There is no live-connection between a local and a remote repository.
+    That means, when changes are made on either repository, they are not automatically
+    reflected in the other one. To update either repository, we need to "push/pull"
+    changes to the other one via "git push remote-repo-name branch-to-push" and
+    "git pull remote-repo-name branch-to-pull". Where "pushing" will *upload* changes and
+    "pull" will *download* changes from/to the specified repository and branch.
+
+(c) Branches:
+    Branches are simply lines of commit history, or chains of commits, which share a 
+    common ancestor commit at some point at the back of their commit chain.
+    
+    Each repository starts with one branch, customarily called the "master" branch
+    and users may branch off of this main branch at any time and as often as they wish
+    to test out and commit changes without affecting a stable main-branch, before
+    commiting the changes to the main-branch. 
+
+    It is customary to keep the main (master)
+    branch as always stable and release-ready, free of bugs and use branches to test
+    additions to this branch for stability and functionality before adding them, to
+    guarantee a clean master-branch version of the project is available at all times.
+
+
+(d) Branches VS Clones VS Forks:
+    A branch is useful generally for testing and working out changes and additions to the
+    projects, also changes of experimental nature, until they are mature and stable enough
+    to be ready to be added to the master branch. This always ensures a clean, stable and
+    working master branch. I'd use branches for each new major addition to my code I start
+    work on.
+
+    A clone is useful in many situations. When we want to continue working on our project
+    on another device. When we want to collaborate with others, we'd clone our local
+    repository to GitHub. When others want to collaborate with us, they'd clone our
+    repository to their devices from GitHub.
+
+    A fork is useful when we have no permission to contribute to a project and want to make
+    changes to it, or when we would like to simply develop our own version of it by
+    moving it into a completely new direction with our ideas from here on out.
+    In that case we could fork it, creating essentially a duplicate of the project on
+    GitHub, which we can then clone to our local directoy to work on it and push/pull
+    changes to our very own, separate version of the project on GitHub.
