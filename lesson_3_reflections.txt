@@ -18,3 +18,20 @@ and don't immediately delete their project files after a contribution.)
 public nature of it (assuming we don't wish to pay the monthly subscription fee for private
 repositories.) Our files would be open for access by the public, so if we have concerns regarding
 our intellectual property, we should be aware of that.
+
+
+
+
+(2) Why might you want to always pull changes manually rather than having Git
+automatically stay up-to-date with your remote repository?
+
+The only scenario I can think of is when the repository's file-sizes are very large
+and there are very frequent updates to the repository, which might slow my own
+development process down as I wait for my local copy to update.
+
+Doing it manually gives me more flexibility. I can check the latest state of the project
+on GitHub first, before deciding whether to pull recent updates, because I might feel
+the updates impact my own work in one way or another.
+
+Otherwise I can't really think of scenarios where keeping up to date with the latest
+changes isn't a good idea.
