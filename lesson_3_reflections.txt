@@ -105,3 +105,38 @@ instead of another?
     In that case we could fork it, creating essentially a duplicate of the project on
     GitHub, which we can then clone to our local directoy to work on it and push/pull
     changes to our very own, separate version of the project on GitHub.
+
+
+
+
+(4) What is the benefit of having a copy of the last known state of the remote stored
+locally?
+
+The benefit is to always be able to work with the latest version of the project and
+to never lag behind too far behind everyone else working on the project.
+
+Changes introduced in the latest state of the project might affect what we are working
+on ourselves, so knowing about these changes as soon as possible allows us to adapt to
+them earlier on. The more outdated our local version is, the more we run the risk
+that an increasingly bigger amount of changes were introduced, which might increasingly
+significantly impact our own work we did while offline.
+
+Having the last known state of the remote stored locally as its own branch also allows us
+to keep track of how far ahead we are with our local version compared to the online
+version (at least its last state known to us).
+
+Another benefit of having a "copy" of the latest "state" of the remote (meaning all its
+branches) is extra safety for our own work we do locally. Since our own work locally is 
+on our own local branches, when we "pull" the latest state of the project files and both we on our local version and the remote added commits to the same branch, the new commits
+both sides made aren't simply added in chronological order to the same branch,
+overwriting each other silently. 
+No, the commits of the remote are added to the "remotename/branchname" branch on our local 
+machine and a *merge* between our latest commit on this "branchname" branch (our own branch) and the latest commit of remote on that same branch (the latest commit on the 
+remotename/branchname branch on our local machine) is initiated, so that:
+
+(a) No commit is overwriting the other (which would be the same as ignoring its 
+existence and any changes it introduced.) Remember: commits contain the *state* of the 
+files. With "git diff" we merely view the *difference between states of files* at different 
+times.
+(b) If both modified the same lines differently, a conflict is caused and we are able to 
+design a version of the file satisfying both commits.
