@@ -174,3 +174,26 @@ would be harder?
 
     I can't think of anything that would be easier when collaborating without Git/GitHub.
     Making changes is more cumbersome without it and communication is more complicated.
+
+
+
+
+(6) When would you want to make changes in a separate branch rather than directly in 
+master? What benefits does each approach have?
+
+I would generally want to work on a seperate branch whenever adding/changing/fixing
+anything new to/on the project. This ensures I always have a clean master branch that is
+publish-ready and working entirely as expected. It also keeps it clean in another way.
+
+When I decide to work on something experimental I am not yet entirely sure I will actually
+ever really include, but I want to test it out, if I were doing this on the master branch
+and then reverting my changes in subsequent commits, I'd be left with a somewhat dirty
+and harder to read commit history for my master-branch. Whereas when I worked on a
+separate branch from the very beginning, I could just delete my branch if I came to the
+conclusion that it wasn't really working out and keep my master entirely clean as if
+nothing ever happened.
+
+The benefit of working directly and only on the master branch is of course speed.
+It's simply faster to directly commit to the master branch as it involves less commands
+to be exectuted. It's also less involved and less complex in terms of understanding
+the commit history, since there is only one branch to keep track of.
