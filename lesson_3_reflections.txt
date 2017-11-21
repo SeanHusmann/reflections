@@ -138,5 +138,36 @@ remotename/branchname branch on our local machine) is initiated, so that:
 existence and any changes it introduced.) Remember: commits contain the *state* of the 
 files. With "git diff" we merely view the *difference between states of files* at different 
 times.
+
 (b) If both modified the same lines differently, a conflict is caused and we are able to 
 design a version of the file satisfying both commits.
+
+
+
+
+(5) How would you collaborate without using Git or GitHub? What would be easier, and what
+would be harder?
+
+    Without Git, collaboration would require increased communication between developers,
+    requiring more time that could instead be used more productively towards the project.
+    
+    The master version of the project would be located at some central location, to which
+    developers upload their changes to files, by replacing them.
+
+    The easiest way would be if team members each just work on independent parts of the
+    project, so as to not cause conflicts with other developers working on the same files.      This makes development less flexible where making a change across multiple files would
+    have been the easiest solution for a developer. If he still wished to implement his
+    change across files, he'd have to communicate with the other developer in charge of
+    those other files, asking him to implement the change he needs.
+
+    What would be harder is simply implementing changes, communication, and keeping in sync
+    with everyone else. Imagine for example that you expect code from other developers to
+    work a certain way, but because you can't so easily see the changes they added over
+    time down the road, the behavior of their code might suddenly change without your
+    knowing, unless you had access to the entire version history of their files to
+    repeatedly run a diff or FC against their versions to see their changes, which in
+    itself would already be a tedious process if you had to do this manually for every 
+    update of your team mates.
+
+    I can't think of anything that would be easier when collaborating without Git/GitHub.
+    Making changes is more cumbersome without it and communication is more complicated.
