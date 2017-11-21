@@ -127,11 +127,13 @@ version (at least its last state known to us).
 
 Another benefit of having a "copy" of the latest "state" of the remote (meaning all its
 branches) is extra safety for our own work we do locally. Since our own work locally is 
-on our own local branches, when we "pull" the latest state of the project files and both we on our local version and the remote added commits to the same branch, the new commits
+on our own local branches, when we "pull" the latest state of the project files and both we
+on our local version and the remote added commits to the same branch, the new commits
 both sides made aren't simply added in chronological order to the same branch,
 overwriting each other silently. 
 No, the commits of the remote are added to the "remotename/branchname" branch on our local 
-machine and a *merge* between our latest commit on this "branchname" branch (our own branch) and the latest commit of remote on that same branch (the latest commit on the 
+machine and a *merge* between our latest commit on this "branchname" branch (our own 
+branch) and the latest commit of remote on that same branch (the latest commit on the 
 remotename/branchname branch on our local machine) is initiated, so that:
 
 (a) No commit is overwriting the other (which would be the same as ignoring its 
@@ -155,7 +157,8 @@ would be harder?
     developers upload their changes to files, by replacing them.
 
     The easiest way would be if team members each just work on independent parts of the
-    project, so as to not cause conflicts with other developers working on the same files.      This makes development less flexible where making a change across multiple files would
+    project, so as to not cause conflicts with other developers working on the same files.  
+    This makes development less flexible where making a change across multiple files would
     have been the easiest solution for a developer. If he still wished to implement his
     change across files, he'd have to communicate with the other developer in charge of
     those other files, asking him to implement the change he needs.
